@@ -1,22 +1,20 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Юрій Новодворскі — незабаром · cartelpoet88</title>
-<meta name="description" content="Юрій Новодворскі (cartelpoet88) — друга частина «Молескіна» та ексклюзивний продаж книг уже зовсім скоро.">
-<meta property="og:title" content="Юрій Новодворскі — незабаром">
-<meta property="og:description" content="Друга частина «Молескіна» та ексклюзивний продаж книг — зовсім скоро. Тільки тут.">
+<title>Yuriy Novodvorski — Coming Soon · cartelpoet88</title>
+<meta name="description" content="Yuriy Novodvorski (cartelpoet88) — the second part of Moleskin and exclusive book sales, coming soon.">
+<meta property="og:title" content="Yuriy Novodvorski — Coming Soon">
+<meta property="og:description" content="The second part of Moleskin and exclusive book sales — coming very soon. Only here.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="author-cafe.jpg">
+<meta property="og:image" content="banner.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600&family=PT+Serif:ital,wght@0,400;1,400&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#f4f1ea;
     --cream:#efe9db;
-    --green:#1f3d34;
     --green-deep:#13261f;
     --gold:#c3a35a;
     --gold-soft:#d8bd80;
@@ -37,17 +35,16 @@
     text-align:center;padding:48px 24px;
     isolation:isolate;
   }
-  /* Background banner — swap author-cafe.jpg with banner.jpg when ready */
+  /* Background banner */
   .stage::before{
     content:"";position:absolute;inset:0;z-index:-2;
-    background:url("author-cafe.jpg") center 28% / cover no-repeat;
-    filter:grayscale(100%);
+    background:url("banner.jpg") center center / cover no-repeat;
   }
   .stage::after{
     content:"";position:absolute;inset:0;z-index:-1;
     background:
-      radial-gradient(130% 90% at 50% 30%, rgba(19,38,31,.55) 0%, rgba(19,38,31,.82) 55%, rgba(19,38,31,.96) 100%),
-      linear-gradient(180deg, rgba(19,38,31,.7), rgba(19,38,31,.92));
+      radial-gradient(62% 60% at 50% 50%, rgba(10,20,16,.74) 0%, rgba(10,20,16,.5) 70%, rgba(10,20,16,.68) 100%),
+      linear-gradient(180deg, rgba(19,38,31,.45), rgba(19,38,31,.62));
   }
   .inner{max-width:720px;width:100%}
   .eyebrow{
@@ -57,9 +54,9 @@
   }
   .name{
     font-family:'Caveat',cursive;
-    font-size:clamp(3.6rem,13vw,7rem);
+    font-size:clamp(3.8rem,13vw,7.4rem);
     line-height:.95;color:var(--cream);font-weight:600;
-    text-shadow:0 2px 30px rgba(0,0,0,.45);
+    text-shadow:0 2px 34px rgba(0,0,0,.6);
     opacity:0;animation:fade 1s ease .3s forwards;
   }
   .divider{
@@ -69,11 +66,13 @@
   .soon{
     font-family:'Playfair Display',serif;font-weight:500;
     font-size:clamp(1.5rem,4vw,2.3rem);letter-spacing:.02em;color:var(--gold-soft);
+    text-shadow:0 2px 20px rgba(0,0,0,.5);
     opacity:0;animation:fade 1s ease .7s forwards;
   }
   .lede{
-    margin:22px auto 0;max-width:500px;font-size:1.08rem;line-height:1.7;
-    color:rgba(239,233,219,.82);font-style:italic;
+    margin:22px auto 0;max-width:480px;font-size:1.08rem;line-height:1.7;
+    color:rgba(239,233,219,.86);font-style:italic;
+    text-shadow:0 1px 14px rgba(0,0,0,.55);
     opacity:0;animation:fade 1s ease .9s forwards;
   }
   .cta{
@@ -86,11 +85,11 @@
   }
   .btn-gold{background:var(--gold);color:var(--green-deep);font-weight:700}
   .btn-gold:hover{background:var(--gold-soft)}
-  .btn-line{border:1px solid rgba(214,189,128,.55);color:var(--gold-soft)}
-  .btn-line:hover{border-color:var(--gold);background:rgba(195,163,90,.12)}
+  .btn-line{border:1px solid rgba(214,189,128,.6);color:var(--gold-soft);backdrop-filter:blur(2px)}
+  .btn-line:hover{border-color:var(--gold);background:rgba(195,163,90,.14)}
   .foot{
     position:absolute;bottom:26px;left:0;right:0;text-align:center;
-    font-size:.74rem;letter-spacing:.14em;color:rgba(239,233,219,.5);
+    font-size:.74rem;letter-spacing:.14em;color:rgba(239,233,219,.55);
     opacity:0;animation:fade 1s ease 1.4s forwards;
   }
   @keyframes fade{to{opacity:1;transform:none}}
@@ -102,16 +101,16 @@
   <div class="stage">
     <div class="inner">
       <div class="eyebrow">cartelpoet88</div>
-      <div class="name">Юрій Новодворскі</div>
+      <div class="name">Yuriy Novodvorski</div>
       <div class="divider"></div>
-      <div class="soon">Незабаром</div>
-      <p class="lede">Друга частина «Молескіна» та ексклюзивний продаж книг — зовсім скоро. Тільки тут.</p>
+      <div class="soon">Coming Soon</div>
+      <p class="lede">The second part of “Moleskin” and exclusive book sales — coming very soon. Only here.</p>
       <div class="cta">
-        <a href="https://www.instagram.com/cartelpoet88/" target="_blank" rel="noopener" class="btn btn-gold">Стежити в Instagram</a>
-        <a href="https://www.yakaboo.ua/ua/moleskin-2351846.html" target="_blank" rel="noopener" class="btn btn-line">«Молескін» на Yakaboo</a>
+        <a href="https://www.instagram.com/cartelpoet88/" target="_blank" rel="noopener" class="btn btn-gold">Follow on Instagram</a>
+        <a href="https://www.yakaboo.ua/ua/moleskin-2351846.html" target="_blank" rel="noopener" class="btn btn-line">“Moleskin” on Yakaboo</a>
       </div>
     </div>
-    <div class="foot">© <span id="y"></span> · Юрій Новодворскі · 18+</div>
+    <div class="foot">© <span id="y"></span> · Yuriy Novodvorski · 18+</div>
   </div>
 <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
