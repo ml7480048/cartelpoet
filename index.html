@@ -23,16 +23,18 @@
   .stage{
     position:relative;min-height:100vh;min-height:100svh;
     display:flex;align-items:flex-end;justify-content:center;
-    text-align:center;padding:0 22px 8vh;background:var(--dark);overflow:hidden;
+    text-align:center;padding:0 22px 8vh;overflow:hidden;
+    background:var(--dark);
   }
-  /* static fallback behind the video */
+  /* ALWAYS-VISIBLE still frame (with text) behind the video — mobile by default */
   .stage::before{
     content:"";position:absolute;inset:0;z-index:-3;
-    background:url("banner.jpg") center center / cover no-repeat;
+    background:url("poster-mobile.jpg") center center / cover no-repeat;
   }
   #bg{
     position:absolute;inset:0;z-index:-2;
-    width:100%;height:100%;object-fit:cover;background:var(--dark);
+    width:100%;height:100%;object-fit:cover;
+    background:transparent;
   }
   .stage::after{
     content:"";position:absolute;inset:0;z-index:-1;
@@ -53,11 +55,17 @@
   }
   @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
   @media(prefers-reduced-motion:reduce){.cta,.foot{animation:none;opacity:1}}
+  /* DESKTOP / WIDE: landscape still frame fallback */
+  @media (min-aspect-ratio: 3/2){
+    .stage::before{background-image:url("poster.jpg")}
+  }
 </style>
 </head>
 <body>
   <div class="stage">
-    <video id="bg" autoplay muted loop playsinline preload="auto"></video>
+    <video id="bg" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="poster-mobile.jpg">
+      <source src="smoke-mobile.mp4" type="video/mp4">
+    </video>
     <div class="cta">
       <a href="https://www.instagram.com/cartelpoet88/" target="_blank" rel="noopener" class="btn">Follow on Instagram</a>
     </div>
@@ -68,18 +76,16 @@
   (function(){
     var v=document.getElementById('bg');
     var mq=window.matchMedia('(min-aspect-ratio: 3/2)');
-    function apply(){
-      var desktop=mq.matches;
-      var src=desktop?'smoke.mp4':'smoke-mobile.mp4';
-      var poster=desktop?'poster.jpg':'poster-mobile.jpg';
-      if(v.getAttribute('data-cur')===src) return;
-      v.setAttribute('data-cur',src);
-      v.setAttribute('poster',poster);
-      v.src=src;
+    function setSrc(mode){
+      v.setAttribute('data-cur',mode);
+      v.setAttribute('poster', mode==='d' ? 'poster.jpg' : 'poster-mobile.jpg');
+      v.innerHTML = '<source src="'+(mode==='d'?'smoke.mp4':'smoke-mobile.mp4')+'" type="video/mp4">';
       v.load();
       var p=v.play(); if(p&&p.catch){p.catch(function(){});}
     }
-    apply();
+    function apply(){ setSrc(mq.matches ? 'd' : 'm'); }
+    // Mobile keeps the native HTML <source>; only swap when desktop, and on orientation changes.
+    if(mq.matches){ setSrc('d'); } else { v.setAttribute('data-cur','m'); var pp=v.play(); if(pp&&pp.catch){pp.catch(function(){});} }
     if(mq.addEventListener){mq.addEventListener('change',apply);}else if(mq.addListener){mq.addListener(apply);}
   })();
 </script>
