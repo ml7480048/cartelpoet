@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yuriy Novodvorski — Coming Soon · cartelpoet88</title>
-<meta name="description" content="Yuriy Novodvorski (cartelpoet88) — the second part of Moleskin and exclusive book sales, coming soon.">
+<meta name="description" content="Yuriy Novodvorski (cartelpoet88) — the second part of Moleskin, coming soon. Only here.">
 <meta property="og:title" content="Yuriy Novodvorski — Coming Soon">
-<meta property="og:description" content="The second part of Moleskin and exclusive book sales — coming very soon. Only here.">
+<meta property="og:description" content="The second part of Moleskin — only here.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="banner.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600&family=PT+Serif:ital,wght@0,400;1,400&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --cream:#efe9db;
-    --green-deep:#13261f;
+    --dark:#0e1a15;
     --gold:#c3a35a;
     --gold-soft:#d8bd80;
   }
@@ -24,91 +24,43 @@
   body{
     font-family:'PT Serif',Georgia,serif;
     color:var(--cream);
-    background:var(--green-deep);
+    background:var(--dark);
     -webkit-font-smoothing:antialiased;
     min-height:100%;
     overflow-x:hidden;
   }
   .stage{
     position:relative;min-height:100vh;min-height:100svh;
-    display:flex;align-items:center;justify-content:center;
-    text-align:center;padding:48px 24px;
-    isolation:isolate;
+    display:flex;align-items:flex-end;justify-content:center;
+    padding:0 24px 7vh;
+    background:var(--dark) url("banner.jpg") center center / cover no-repeat;
   }
-  /* Background banner */
-  .stage::before{
-    content:"";position:absolute;inset:0;z-index:-2;
-    background:url("banner.jpg") center center / cover no-repeat;
+  /* On portrait / narrow screens show the whole banner (text intact), letterboxed on the dark bg */
+  @media (max-aspect-ratio: 3/2){
+    .stage{background-size:contain;align-items:center}
+    .cta{position:absolute;bottom:7vh}
   }
-  .stage::after{
-    content:"";position:absolute;inset:0;z-index:-1;
-    background:
-      radial-gradient(62% 60% at 50% 50%, rgba(10,20,16,.74) 0%, rgba(10,20,16,.5) 70%, rgba(10,20,16,.68) 100%),
-      linear-gradient(180deg, rgba(19,38,31,.45), rgba(19,38,31,.62));
-  }
-  .inner{max-width:720px;width:100%}
-  .eyebrow{
-    font-size:.78rem;letter-spacing:.42em;text-transform:uppercase;
-    color:var(--gold);font-weight:700;margin-bottom:30px;padding-left:.42em;
-    opacity:0;animation:fade .9s ease .15s forwards;
-  }
-  .name{
-    font-family:'Caveat',cursive;
-    font-size:clamp(3.8rem,13vw,7.4rem);
-    line-height:.95;color:var(--cream);font-weight:600;
-    text-shadow:0 2px 34px rgba(0,0,0,.6);
-    opacity:0;animation:fade 1s ease .3s forwards;
-  }
-  .divider{
-    width:70px;height:1px;background:var(--gold);margin:30px auto;opacity:0;
-    animation:grow 1s ease .6s forwards;
-  }
-  .soon{
-    font-family:'Playfair Display',serif;font-weight:500;
-    font-size:clamp(1.5rem,4vw,2.3rem);letter-spacing:.02em;color:var(--gold-soft);
-    text-shadow:0 2px 20px rgba(0,0,0,.5);
-    opacity:0;animation:fade 1s ease .7s forwards;
-  }
-  .lede{
-    margin:22px auto 0;max-width:480px;font-size:1.08rem;line-height:1.7;
-    color:rgba(239,233,219,.86);font-style:italic;
-    text-shadow:0 1px 14px rgba(0,0,0,.55);
-    opacity:0;animation:fade 1s ease .9s forwards;
-  }
-  .cta{
-    margin-top:40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
-    opacity:0;animation:fade 1s ease 1.1s forwards;
-  }
+  .cta{opacity:0;animation:fade 1.1s ease .5s forwards}
   .btn{
     display:inline-block;text-decoration:none;font-size:.78rem;letter-spacing:.16em;
-    text-transform:uppercase;padding:15px 30px;transition:all .3s;
+    text-transform:uppercase;padding:16px 34px;transition:all .3s;
+    background:var(--gold);color:var(--dark);font-weight:700;
+    box-shadow:0 10px 30px -10px rgba(0,0,0,.7);
   }
-  .btn-gold{background:var(--gold);color:var(--green-deep);font-weight:700}
-  .btn-gold:hover{background:var(--gold-soft)}
-  .btn-line{border:1px solid rgba(214,189,128,.6);color:var(--gold-soft);backdrop-filter:blur(2px)}
-  .btn-line:hover{border-color:var(--gold);background:rgba(195,163,90,.14)}
+  .btn:hover{background:var(--gold-soft);transform:translateY(-2px)}
   .foot{
-    position:absolute;bottom:26px;left:0;right:0;text-align:center;
-    font-size:.74rem;letter-spacing:.14em;color:rgba(239,233,219,.55);
-    opacity:0;animation:fade 1s ease 1.4s forwards;
+    position:absolute;bottom:20px;left:0;right:0;text-align:center;
+    font-size:.72rem;letter-spacing:.14em;color:rgba(239,233,219,.45);
+    opacity:0;animation:fade 1s ease 1s forwards;
   }
-  @keyframes fade{to{opacity:1;transform:none}}
-  @keyframes grow{from{opacity:0;transform:scaleX(.2)}to{opacity:1;transform:scaleX(1)}}
+  @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
   @media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important}}
 </style>
 </head>
 <body>
   <div class="stage">
-    <div class="inner">
-      <div class="eyebrow">cartelpoet88</div>
-      <div class="name">Yuriy Novodvorski</div>
-      <div class="divider"></div>
-      <div class="soon">Coming Soon</div>
-      <p class="lede">The second part of “Moleskin” and exclusive book sales. Only here.</p>
-      <div class="cta">
-        <a href="https://www.instagram.com/cartelpoet88/" target="_blank" rel="noopener" class="btn btn-gold">Follow on Instagram</a>
-        <a href="https://www.yakaboo.ua/ua/moleskin-2351846.html" target="_blank" rel="noopener" class="btn btn-line">“Moleskin” on Yakaboo</a>
-      </div>
+    <div class="cta">
+      <a href="https://www.instagram.com/cartelpoet88/" target="_blank" rel="noopener" class="btn">Follow on Instagram</a>
     </div>
     <div class="foot">© <span id="y"></span> · Yuriy Novodvorski · 18+</div>
   </div>
